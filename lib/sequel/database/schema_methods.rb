@@ -964,11 +964,11 @@ module Sequel
       type_literal_generic_numeric(column)
     end
 
-    # Sequel uses the bigint type by default for Bignums.
+    # Bignum support is no longer supported and will raise an error.
     def type_literal_generic_bignum(column)
-      :bigint
+      raise Error, "Using the Bignum class as a generic type is deprecated because its behavior has changed in Ruby 2.4. Switch to using the :Bignum symbol instead. See https://github.com/jeremyevans/sequel/pull/1403 for more details."
     end
-    
+
     # Sequel uses the bigint type by default for :Bignum symbol.
     def type_literal_generic_bignum_symbol(column)
       :bigint
